@@ -8,3 +8,16 @@ contract MyToken is ERC20 {
 		_mint(msg.sender, initialSupply);
 	}
 }
+
+contract MyLocation {
+    mapping(bytes32 => int256) private keyValuePairs;
+
+    // Corrected function signatures
+    function setValue(bytes32 key, int256 value) public {
+        keyValuePairs[key] = value;
+    }
+
+    function getValue(bytes32 key) public view returns (int256) {
+        return keyValuePairs[key];
+    }
+}
